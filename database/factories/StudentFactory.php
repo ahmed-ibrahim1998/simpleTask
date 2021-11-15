@@ -17,7 +17,8 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'fname' => $this->faker->firstName,
+            'lname' => $this->faker->lastName,
             'classrooms_id' =>Classroom::all()->random(1)->first()->id,
         ];
     }

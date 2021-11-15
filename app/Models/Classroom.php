@@ -20,6 +20,7 @@ class Classroom extends Model
 
 
 
+
     protected static function newFactory()
     {
         return ClassroomFactory::new();

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ClassRoomController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,13 +20,12 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::get('classroom',function () {
-    return \App\Models\Classroom::all();
-});
-
-Route::get('student',function () {
-    return \App\Models\Student::with('classrooms')->get();
-});
+Route::get('classroom',[ClassRoomController::class,'index']);
+Route::get('student',[StudentController::class,'index']);
+//
+//Route::get('student',function () {
+//    return \App\Models\Student::with('classrooms')->get();
+//});
 
 Route::get('student/{id}',function ($id) {
     return \App\Models\Student::find($id);
